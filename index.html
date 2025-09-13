@@ -1,1049 +1,155 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.S. Benefits Portal - Identity Verification</title>
-    <meta name="description" content="Check your outstanding balances and eligible claims securely and privately">
+    <title>U.S. Benefits Portal - Claim Your Funds</title>
+    <meta name="description" content="Watch the video to claim your approved benefits">
 
-    <!--SCRIPTS-->
-    <script src="js/latest.js" data-utmify-prevent-subids="" data-utmify-fast-start="" async="" defer=""></script>
-    <!-- Meta Pixel Code -->
-
-    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" data-utmify-ignore-iframe="" data-utmify-is-cartpanda="" async="" defer=""></script>
-    <script>
-      window.pixelId = "67d9b32ae161fb9cdd2bc3a0";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
-    </script><script async="" defer="" src="js/pixel.js"></script>
+    <!--preload-->
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/36ecd003-abeb-4f3c-9cfb-199140cc1f87/players/68c4aaa2234522926209f1cd/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/36ecd003-abeb-4f3c-9cfb-199140cc1f87/68c4aa7e8d74d8c4f6077d83/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <!--end preload-->
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f8fafc;
-      }
-
-      .header {
-        background: white;
-        border-bottom: 1px solid #e2e8f0;
-        padding: 1rem 0;
-      }
-
-      .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .logo-text h1 {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #1e293b;
-      }
-
-      .logo-text p {
-        font-size: 0.75rem;
-        color: #64748b;
-      }
-
-      .header-tagline {
-        font-size: 0.875rem;
-        color: #64748b;
-      }
-
-      .alert-banner {
-        background: linear-gradient(135deg, #dc2626, #b91c1c);
-        color: white;
-        padding: 0.75rem 0;
-      }
-
-      .alert-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-        font-size: 0.875rem;
-      }
-
-      .alert-left {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .alert-icon {
-        width: 16px;
-        height: 16px;
-        background: #ffffff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #dc2626;
-        font-size: 10px;
-        font-weight: bold;
-      }
-
-      .countdown {
-        background: white;
-        color: #dc2626;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-weight: 600;
-        font-family: monospace;
-      }
-
-      .main-content {
-        max-width: 600px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-
-      .progress-bar {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2rem;
-        position: relative;
-      }
-
-      .progress-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        z-index: 2;
-      }
-
-      .step-number {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        font-size: 0.875rem;
-        margin-bottom: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .step-number.active {
-        background: #2563eb;
-        color: white;
-        border: 2px solid #2563eb;
-      }
-
-      .step-number.inactive {
-        background: white;
-        color: #94a3b8;
-        border: 2px solid #e2e8f0;
-      }
-
-      .step-number.completed {
-        background: #059669;
-        color: white;
-        border: 2px solid #059669;
-      }
-
-      .step-label {
-        font-size: 0.75rem;
-        color: #64748b;
-        text-align: center;
-      }
-
-      .step-label.active {
-        color: #2563eb;
-        font-weight: 500;
-      }
-
-      .step-label.completed {
-        color: #059669;
-        font-weight: 500;
-      }
-
-      .progress-line {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        right: 16px;
-        height: 2px;
-        background: #e2e8f0;
-        z-index: 1;
-      }
-
-      .progress-line-fill {
-        height: 100%;
-        background: #2563eb;
-        width: 0%;
-        transition: width 0.3s ease;
-      }
-
-      .card {
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e2e8f0;
-        overflow: hidden;
-        display: none;
-      }
-
-      .card.active {
-        display: block;
-      }
-
-      .card-header {
-        padding: 1.5rem;
-        border-bottom: 1px solid #f1f5f9;
-      }
-
-      .card-title {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .title-text {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #1e293b;
-      }
-
-      .urgent-badge {
-        background: #dc2626;
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-
-      .card-description {
-        color: #64748b;
-        font-size: 0.875rem;
-      }
-
-      .card-content {
-        padding: 1.5rem;
-      }
-
-      .info-box {
-        background: #eff6ff;
-        border: 1px solid #bfdbfe;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .info-content {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        color: #1e40af;
-        font-size: 0.875rem;
-      }
-
-      .info-icon {
-        width: 20px;
-        height: 20px;
-        background: #3b82f6;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 12px;
-      }
-
-      .form-group {
-        margin-bottom: 1.5rem;
-      }
-
-      .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-        color: #374151;
-      }
-
-      .form-input {
-        width: 100%;
-        padding: 0.875rem 1rem;
-        border: 2px solid #d1d5db;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        background: white;
-      }
-
-      .form-input:focus {
-        outline: none;
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-      }
-
-      .form-input.error {
-        border-color: #dc2626;
-      }
-
-      .error-message {
-        color: #dc2626;
-        font-size: 0.875rem;
-        margin-top: 0.5rem;
-        display: none;
-      }
-
-      .card-footer {
-        padding: 1.5rem;
-        border-top: 1px solid #f1f5f9;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .btn {
-        padding: 0.875rem 2rem;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 120px;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #dc2626, #b91c1c);
-        color: white;
-      }
-
-      .btn-primary:hover:not(:disabled) {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-      }
-
-      .btn-secondary {
-        background: #6b7280;
-        color: white;
-      }
-
-      .btn-secondary:hover {
-        background: #4b5563;
-      }
-
-      .btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none;
-      }
-
-      .btn.loading {
-        position: relative;
-        color: transparent;
-      }
-
-      .btn.loading::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
-        border: 2px solid transparent;
-        border-top: 2px solid currentColor;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(360deg);
-        }
-      }
-
-      .success-message {
-        background: #f0fdf4;
-        border: 1px solid #bbf7d0;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-top: 1rem;
-        color: #166534;
-        display: none;
-      }
-
-      /* Analysis Step Styles */
-      .analysis-content {
-        text-align: center;
-        padding: 2rem 1rem;
-      }
-
-      .loading-spinner {
-        width: 60px;
-        height: 60px;
-        border: 4px solid #e2e8f0;
-        border-top: 4px solid #2563eb;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 2rem;
-      }
-
-      .estimated-amount {
-        background: linear-gradient(135deg, #059669, #047857);
-        color: white;
-        padding: 2rem;
-        border-radius: 12px;
-        margin: 2rem 0;
-      }
-
-      .amount-label {
-        font-size: 0.875rem;
-        opacity: 0.9;
-        margin-bottom: 0.5rem;
-      }
-
-      .amount-value {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-      }
-
-      .amount-status {
-        background: #10b981;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 1rem;
-      }
-
-      .expiry-warning {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 1rem;
-        border-radius: 8px;
-        font-size: 0.875rem;
-        margin-top: 1rem;
-      }
-
-      /* Payout Method Styles */
-      .payout-methods {
-        display: grid;
-        gap: 1rem;
-        margin: 2rem 0;
-      }
-
-      .payout-option {
-        border: 2px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-        display: block;
-      }
-
-      .payout-option:hover {
-        border-color: #2563eb;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
-      }
-
-      .payout-option.selected {
-        border-color: #2563eb;
-        background: #eff6ff;
-      }
-
-      .payout-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.5rem;
-      }
-
-      .payout-name {
-        font-weight: 600;
-        font-size: 1.125rem;
-      }
-
-      .payout-badge {
-        background: #10b981;
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      .payout-description {
-        color: #64748b;
-        font-size: 0.875rem;
-      }
-
-      .phone-preview {
-        background: #f1f5f9;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-
-      .phone-preview .amount {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #059669;
-      }
-
-      .expires-soon {
-        background: #fef3c7;
-        border: 1px solid #f59e0b;
-        color: #92400e;
-        padding: 0.75rem;
-        border-radius: 8px;
-        text-align: center;
-        margin-bottom: 1rem;
-        font-weight: 500;
-      }
-
-      @media (max-width: 768px) {
-        .header-content {
-          flex-direction: column;
-          gap: 1rem;
-          text-align: center;
-        }
-
-        .alert-content {
-          flex-direction: column;
-          gap: 0.5rem;
-          text-align: center;
-        }
-
-        .progress-bar {
-          gap: 0.5rem;
-        }
-
-        .step-label {
-          font-size: 0.625rem;
-        }
-
-        .card-header,
-        .card-content,
-        .card-footer {
-          padding: 1rem;
-        }
-
-        .amount-value {
-          font-size: 2rem;
-        }
-      }
-
-      .fade-in {
-        animation: fadeIn 0.5s ease-in;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .shake {
-        animation: shake 0.5s ease-in-out;
-      }
-
-      @keyframes shake {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        25% {
-          transform: translateX(-5px);
-        }
-        75% {
-          transform: translateX(5px);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header-content">
-        <div class="logo">
-          <div class="flex items-center gap-2">
-            <img src="images/us-flag.png" alt="U.S. Flag" class="w-10">
+  <script src="js/player.js" async=""></script></head>
+  <body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Header -->
+
+    <header class="bg-white border-b border-gray-200 py-6 max-md:py-2">
+        
+      <div class="w-[98%] mx-auto max-md:w-[95%]">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <img src="images/us-flag.png" alt="U.S. Flag" class="w-10 h-auto">
+            <div>
+              <h1 class="text-xl font-bold text-gray-800 mb-1">
+                U.S. Benefits Portal
+              </h1>
+              <p class="text-sm text-gray-500">Department of Public Services</p>
+            </div>
           </div>
-          <div class="logo-text">
-            <h1>U.S. Benefits Portal</h1>
-            <p>Department of Public Services</p>
+          <div class="text-right">
+            <div class="text-4xl font-bold text-green-600 mb-1" id="claimAmountHeader">$2,730</div>
+            <div class="text-sm text-gray-500 font-medium">Your Claim</div>
           </div>
-        </div>
-        <div class="header-tagline max-md:hidden">
-          Secure • Private • Accessible
         </div>
       </div>
     </header>
 
-    <div class="alert-banner">
-      <div class="alert-content">
-        <div class="alert-left">
-          <div class="alert-icon">⚡</div>
-          <span>High volume detected - Complete your claim within 15 minutes to
-            secure priority processing</span>
+    <div class="w-[100%] mx-auto">
+      <!-- Alert Banner -->
+      <div class="bg-red-600 text-white py-4">
+        <div class="flex items-center gap-3 font-semibold text-lg">
+          <span class="text-2xl">⚡</span>
+          <span>Claim Expires Soon</span>
         </div>
-        <div class="countdown" id="countdown">14:56</div>
+      </div>
+
+      <!-- Claim Info Box -->
+      <div class="bg-green-50 border-2 border-green-200 rounded-xl mb-2 p-2 flex justify-between items-center">
+        <div class="flex items-center gap-4 max-md:gap-2">
+          <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            ✓
+          </div>
+          <div class="text-green-600 font-semibold max-md:text-base">
+            <div class="text-2xl mb-2 max-md:text-lg" id="claimAmountBox">$2,730 Approved</div>
+            <div class="text-base max-md:text-sm" id="phoneText">Name: *************</div>
+          </div>
+        </div>
+        <div class="bg-green-100 text-green-600 px-6 py-3 rounded-full text-sm font-bold uppercase border-2 border-green-200">
+          VERIFIED
+        </div>
+      </div>
+
+      <!-- Video CTA -->
+      <div class="text-center max-md:text-xl text-2xl font-semibold text-gray-800 mb-2 p-2 bg-white">
+        Watch this video to claim your
+        <span id="claimAmountCTA" class="text-green-600">$2,730</span>
+      </div>
+
+      <!-- Video Section -->
+      <div class="bg-white rounded-xl p-2 mb-8 text-center">
+<vturb-smartplayer id="vid-68c4aaa2234522926209f1cd" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/36ecd003-abeb-4f3c-9cfb-199140cc1f87/players/68c4aaa2234522926209f1cd/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+      </div>
+
+      <!-- Footer Warning -->
+      <div class="bg-amber-50 p-6 text-center">
+        <div class="text-4xl mb-4">⚠️</div>
+        <div class="text-amber-800 text-lg font-semibold leading-relaxed">
+          Important: YOU must watch the entire video to receive your funds.
+        </div>
       </div>
     </div>
 
-    <main class="main-content">
-      <nav class="progress-bar" aria-label="Progress">
-        <div class="progress-line">
-          <div class="progress-line-fill" id="progressFill"></div>
-        </div>
-        <div class="progress-step" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-          <div class="step-number active" id="step1">1</div>
-          <div class="step-label active">Identity</div>
-        </div>
-        <div class="progress-step" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-          <div class="step-number inactive" id="step2">2</div>
-          <div class="step-label">Analysis</div>
-        </div>
-        <div class="progress-step" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-          <div class="step-number inactive" id="step3">3</div>
-          <div class="step-label">Estimate</div>
-        </div>
-        <div class="progress-step" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-          <div class="step-number inactive" id="step4">4</div>
-          <div class="step-label">Payout</div>
-        </div>
-      </nav>
-
-      <!-- Identity Step -->
-      <div class="card active fade-in" id="identityCard" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
-        <div class="card-header">
-          <div class="card-title">
-            <span class="title-text">Confirm your identity</span>
-            <span class="urgent-badge">URGENT</span>
-          </div>
-          <p class="card-description">
-            Enter your full name to check outstanding balances and eligible
-            claims. Your information stays 100% safe on this website.
-          </p>
-        </div>
-
-        <form id="identityForm" class="card-content">
-          <div class="info-box">
-            <div class="info-content">
-              <div class="info-icon">⏰</div>
-              <span>Time-sensitive claim detected for your area</span>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="phone" class="form-label">Full Name</label>
-            <input type="text" id="phone" class="form-input" placeholder="John Doe" autocomplete="name" maxlength="100" required="">
-            <div class="error-message" id="phoneError">
-              Please enter a complete name
-            </div>
-          </div>
-
-          <div class="success-message" id="successMessage">
-            ✅ Identity verification successful! Redirecting to analysis...
-          </div>
-        </form>
-
-        <div class="card-footer">
-          <div></div>
-          <button type="submit" form="identityForm" class="btn btn-primary" id="submitBtn">
-            Continue
-          </button>
-        </div>
-      </div>
-
-      <!-- Analysis Step -->
-      <div class="card fade-in" id="analysisCard" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
-        <div class="card-header">
-          <div class="card-title">
-            <span class="title-text">Your estimated claim</span>
-            <span class="urgent-badge">APPROVED</span>
-          </div>
-          <p class="card-description">
-            Based on your information, this is your current eligible amount.
-          </p>
-        </div>
-
-        <div class="card-content">
-          <div class="analysis-content">
-            <div class="loading-spinner" id="loadingSpinner"></div>
-            <div id="analysisResult" style="display: none">
-              <div class="estimated-amount">
-                <div class="amount-label">LIMITED TIME</div>
-                <div class="amount-value" id="estimatedAmount">$0</div>
-                <div class="amount-status">APPROVED</div>
-                <div class="expiry-warning">
-                  ⏰ Claim Expires: This amount is reserved for 15 minutes only
-                </div>
-              </div>
-              <p class="card-description">
-                Proceed to choose how you'd like to receive funds.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-footer">
-          <button class="btn btn-secondary" id="backBtn">Back</button>
-          <button class="btn btn-primary" id="secureFundsBtn" style="display: none">
-            Secure My Funds
-          </button>
-        </div>
-      </div>
-
-      <!-- Payout Method Step -->
-      <div class="card fade-in" id="payoutCard" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
-        <div class="card-header">
-          <div class="card-title">
-            <span class="title-text">Choose payout method</span>
-          </div>
-          <p class="card-description">
-            Select how you'd like to receive your funds. Processing will begin
-            immediately.
-          </p>
-        </div>
-
-        <div class="card-content">
-          <div class="phone-preview">
-            Estimated claim for
-            <span id="phoneEnding">J. Doe</span>
-            <div class="amount" id="payoutAmount">$0</div>
-          </div>
-
-          <div class="expires-soon">EXPIRES SOON</div>
-
-          <div class="payout-methods">
-            <a href="vsl.html" class="payout-option" id="paypalOption">
-              <div class="payout-header">
-                <span class="payout-name">PayPal</span>
-                <span class="payout-badge">INSTANT</span>
-              </div>
-              <div class="payout-description">Instant transfer</div>
-            </a>
-
-            <a href="vsl.html" class="payout-option" id="bankOption">
-              <div class="payout-header">
-                <span class="payout-name">Bank Deposit</span>
-                <span class="payout-badge">INSTANT</span>
-              </div>
-              <div class="payout-description">Direct to account</div>
-            </a>
-          </div>
-
-          <div style="text-align: center; margin-top: 2rem">
-            <a href="vsl.html" class="btn btn-primary">
-              Continue to Claim Funds
-            </a>
-          </div>
-
-          <p style="
-              text-align: center;
-              margin-top: 1rem;
-              color: #64748b;
-              font-size: 0.875rem;
-            ">
-            Or tap a payout method above for instant redirect
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <button class="btn btn-secondary" id="backToAnalysisBtn">Back</button>
-        </div>
-      </div>
-    </main>
-
     <script>
       // DOM Elements
-      const form = document.getElementById("identityForm");
-      const nameInput = document.getElementById("phone"); // Still using phone ID for compatibility
-      const nameError = document.getElementById("phoneError"); // Still using phone ID for compatibility
-      const submitBtn = document.getElementById("submitBtn");
-      const successMessage = document.getElementById("successMessage");
-      const countdown = document.getElementById("countdown");
+      const claimAmountHeader = document.getElementById("claimAmountHeader");
+      const claimAmountBox = document.getElementById("claimAmountBox");
+      const claimAmountCTA = document.getElementById("claimAmountCTA");
+      const phoneText = document.getElementById("phoneText");
+      const videoPlayer = document.getElementById("videoPlayer");
 
-      // Cards
-      const identityCard = document.getElementById("identityCard");
-      const analysisCard = document.getElementById("analysisCard");
-      const payoutCard = document.getElementById("payoutCard");
+      // Get claim data from localStorage (set by funil.html)
+      function getClaimData() {
+        // Get amount from localStorage
+        const storedAmount = localStorage.getItem("claimAmount");
+        const amount = storedAmount || "$2,730";
 
-      // Analysis elements
-      const loadingSpinner = document.getElementById("loadingSpinner");
-      const analysisResult = document.getElementById("analysisResult");
-      const estimatedAmount = document.getElementById("estimatedAmount");
-      const secureFundsBtn = document.getElementById("secureFundsBtn");
+        // Get phone from localStorage
+        const storedPhone = localStorage.getItem("userName");
+        const phone = storedPhone || "*************";
 
-      // Payout elements
-      const phoneEnding = document.getElementById("phoneEnding");
-      const payoutAmount = document.getElementById("payoutAmount");
-      const paypalOption = document.getElementById("paypalOption");
-      const bankOption = document.getElementById("bankOption");
-
-      // Buttons
-      const backBtn = document.getElementById("backBtn");
-      const backToAnalysisBtn = document.getElementById("backToAnalysisBtn");
-
-      // Current step tracking
-      let currentStep = 1;
-      let phoneNumber = ""; // Now stores the user's full name
-      let claimAmount = 0;
-
-      // Name validation
-      function validateName(name) {
-        // Check if name has at least 2 words (first and last name)
-        const nameParts = name.trim().split(/\s+/);
-        return (
-          nameParts.length >= 2 && nameParts.every((part) => part.length >= 2)
-        );
+        return { amount, phone };
       }
 
-      // Name input event listener with validation
-      nameInput.addEventListener("input", function (e) {
-        const name = e.target.value;
-
-        // Validate name in real-time
-        if (validateName(name)) {
-          nameInput.classList.remove("error");
-          nameError.style.display = "none";
-          submitBtn.disabled = false;
-        } else if (name.length > 0) {
-          nameInput.classList.add("error");
-          nameError.style.display = "block";
-          submitBtn.disabled = true;
-        } else {
-          nameInput.classList.remove("error");
-          nameError.style.display = "none";
-          submitBtn.disabled = true;
-        }
-      });
-
-      // Allow all text input for names
-
-      // Name validation function for form submission
-      function validateNameSubmission(name) {
-        return validateName(name);
-      }
-
-      // Form submission
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = nameInput.value;
-
-        if (!validateNameSubmission(name)) {
-          nameInput.classList.add("error");
-          nameError.style.display = "block";
-          nameInput.classList.add("shake");
-          setTimeout(() => nameInput.classList.remove("shake"), 500);
-          return;
-        }
-
-        phoneNumber = name;
-        // Show first name initial and last name for privacy
-        const nameParts = name.trim().split(/\s+/);
-        const firstName = nameParts[0];
-        const lastName = nameParts[nameParts.length - 1];
-        phoneEnding.textContent = `${firstName.charAt(0)}. ${lastName}`;
-
-        // Show success message
-        successMessage.style.display = "block";
-
-        // Simulate redirect to analysis
-        setTimeout(() => {
-          showStep(2);
-        }, 1500);
-      });
-
-      // Show specific step
-      function showStep(step) {
-        // Hide all cards
-        identityCard.classList.remove("active");
-        analysisCard.classList.remove("active");
-        payoutCard.classList.remove("active");
-
-        // Show target card
-        if (step === 1) {
-          identityCard.classList.add("active");
-        } else if (step === 2) {
-          analysisCard.classList.add("active");
-          startAnalysis();
-        } else if (step === 3) {
-          payoutCard.classList.add("active");
-        }
-
-        currentStep = step;
-        updateProgress(step);
-      }
-
-      // Start analysis process
-      function startAnalysis() {
-        loadingSpinner.style.display = "block";
-        analysisResult.style.display = "none";
-        secureFundsBtn.style.display = "none";
-
-        // Simulate analysis delay
-        setTimeout(() => {
-          loadingSpinner.style.display = "none";
-          analysisResult.style.display = "block";
-
-          // Generate random amount between $2,000 and $5,000
-          claimAmount = "2,324.00";
-          estimatedAmount.textContent = `$${claimAmount.toLocaleString()}`;
-          payoutAmount.textContent = `$${claimAmount.toLocaleString()}`;
-
-          // Save data to localStorage for vsl.html
-          localStorage.setItem(
-            "claimAmount",
-            `$${claimAmount.toLocaleString()}`
-          );
-          localStorage.setItem("userName", phoneNumber);
-
-          // Show secure funds button
-          setTimeout(() => {
-            secureFundsBtn.style.display = "inline-flex";
-          }, 1000);
-        }, 3000);
-      }
-
-      // Update progress bar
-      function updateProgress(step) {
-        const progressFill = document.getElementById("progressFill");
-        const progress = ((step - 1) / 3) * 100;
-
-        progressFill.style.width = progress + "%";
-
-        // Update step numbers
-        for (let i = 1; i <= 4; i++) {
-          const stepNumber = document.getElementById(`step${i}`);
-          const stepLabel = stepNumber.nextElementSibling;
-
-          if (i < step) {
-            stepNumber.className = "step-number completed";
-            stepLabel.className = "step-label completed";
-          } else if (i === step) {
-            stepNumber.className = "step-number active";
-            stepLabel.className = "step-label active";
-          } else {
-            stepNumber.className = "step-number inactive";
-            stepLabel.className = "step-label";
-          }
-        }
-      }
-
-      // Button event listeners
-      secureFundsBtn.addEventListener("click", () => {
-        // Go to Estimate step (step 3)
-        showStep(3);
-      });
-
-      backBtn.addEventListener("click", () => {
-        showStep(1);
-      });
-
-      backToAnalysisBtn.addEventListener("click", () => {
-        showStep(2);
-      });
-
-      // Countdown timer
-      function updateCountdown() {
-        let minutes = 14;
-        let seconds = 56;
-
-        const timer = setInterval(() => {
-          if (seconds > 0) {
-            seconds--;
-          } else if (minutes > 0) {
-            minutes--;
-            seconds = 59;
-          } else {
-            clearInterval(timer);
-            countdown.textContent = "00:00";
-            return;
-          }
-
-          countdown.textContent = `${minutes
-            .toString()
-            .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-        }, 1000);
+      // Video player functionality
+      function setupVideoPlayer() {
+        videoPlayer.addEventListener("click", function () {
+          // You can replace this with actual video functionality
+          this.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-full text-white text-2xl">
+              🎥 Video Playing...<br>
+              <small class="text-base mt-4 opacity-80">(This is a placeholder)</small>
+            </div>
+          `;
+          this.classList.remove("");
+          this.style.background = "#059669";
+          this.style.cursor = "default";
+        });
       }
 
       // Initialize
       document.addEventListener("DOMContentLoaded", function () {
-        updateCountdown();
-        nameInput.focus();
+        // Get claim data from localStorage
+        const { amount, phone } = getClaimData();
 
-        // Enter key support
-        nameInput.addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            form.dispatchEvent(new Event("submit"));
-          }
+        // Set claim amount in all locations
+        claimAmountHeader.textContent = amount;
+        claimAmountBox.textContent = `${amount} Approved`;
+        claimAmountCTA.textContent = amount;
+
+        // Set phone number
+        phoneText.textContent = `Name: ${phone}`;
+
+        // Setup video player
+        setupVideoPlayer();
+
+        // Add some interactivity
+        document.querySelectorAll(".bg-green-50").forEach((box) => {
+          box.addEventListener("mouseenter", function () {
+            this.classList.add("transform", "-translate-y-1", "shadow-lg");
+            this.style.transition = "all 0.3s ease";
+          });
+
+          box.addEventListener("mouseleave", function () {
+            this.classList.remove("transform", "-translate-y-1", "shadow-lg");
+          });
         });
-      });
-
-      // Entry animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-          }
-        });
-      }, observerOptions);
-
-      // Observe elements for animation
-      document.querySelectorAll(".card, .progress-step").forEach((el) => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-        observer.observe(el);
       });
     </script>
   
